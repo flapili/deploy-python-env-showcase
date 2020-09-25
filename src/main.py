@@ -30,7 +30,7 @@ async def upload_src(env_name: str, file: UploadFile = File(...)):
     req = p / "src" / "requirements.txt"
     if req.is_file():
         # replace Script/pip.exe by bin/pip on linux
-        process = subprocess.Popen([p / "venv" / "Scripts" / "pip.exe", "install", "-r", req])  
+        process = subprocess.Popen([p / "venv" / "Scripts" / "pip.exe", "install", "-r", req])
         process.wait()
 
     return f"env {env_name} created"
